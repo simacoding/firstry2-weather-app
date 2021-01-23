@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>W5 Homework WeatherApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/ba594dab48.js" crossorigin="anonymous"></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+    <form>
+      <div>
+        <input type="text" placeholder="Enter your city" id="entercity"/>
+        <input type="button" value="🔍" id="searchbutton">
+      </div>
+      <br />
+      <div>
+        <button>Use your current location</button>
+      </div>
+      <br/>
+        <div class="row">
+    <div class="col-6" >
+        <h1 id="city-name">Munich</h1>
+        <p class="cityinformation">
+          Local date: <span id="local-date"> 12/20/2020 </span> <br/>
+          Local time: <span id="local-time"> 5.40 p.m. </span><br/>
+          <br/>
+          Humidity: <span id="local-humidity"> 90 </span> %<br/>
+          Wind: <span id="local-wind"> 0 </span>km/h
+        </p>
+    
+    </div>
+    <div class="col-6">
+      <span class="degree">3</span>
+      <span class="unit">
+        <a href="#" id="celsius-unit">°C</a>
+        <a href="#" id="fahrenheit-unit">|°F</a>
+      </span>
+      
+      <div class="bigicon">      
+          <i class="fas fa-cloud-sun"></i>
+      </div>
+    </div>
+    
+  </div>
+  <br/> 
+  <div class="row">
+    <div class="col-3">
+        <div class="card" style="width: 6rem;">
+            <div class="card-body">
+                <h5 class="card-title">8.00 p.m.</h5>
+                <p class="card-text">1°C</p>
+                <i class="fas fa-cloud-moon"></i>
+            </div>
+        </div> 
+    </div>
+    <div class="col-3">
+        <div class="card" style="width: 6rem;">
+            <div class="card-body">
+                <h5 class="card-title">10.00 p.m.</h5>
+                <p class="card-text">0°C</p>
+                <i class="fas fa-cloud-moon"></i>
+            </div>
+        </div> 
+    </div>
+    <div class="col-3">
+        <div class="card" style="width: 6rem;">
+            <div class="card-body">
+                <h5 class="card-title">12.00 a.m.</h5>
+                <p class="card-text">-2°C</p>
+                <i class="fas fa-cloud-moon"></i>
+            </div>
+        </div> 
+    </div>
+    <div class="col-3">
+        <div class="card" style="width: 6rem;">
+            <div class="card-body">
+                <h5 class="card-title">12.00 a.m.</h5>
+                <p class="card-text">0°C</p>
+                <i class="fas fa-cloud-moon-rain"></i>
+                
+            </div>
+        </div> 
+    </div>
+</div>
+</div>
+</div>
+    </form>
+    <script src="src/script.js">
+     
+    </script>
+  </body>
+</html>
