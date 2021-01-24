@@ -59,3 +59,12 @@ h1 {
   background: #ffffff;
   border-radius: 5%;
 }
+
+#underline-text {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#underline-link {
+  text-decoration: none;
+}
