@@ -20,7 +20,7 @@
       <div>
         <input type="text" placeholder="Enter your city" id="entercity"/>
         <input type="button" value="🔍" id="searchbutton">
-        <button><i class="fas fa-map-marker-alt"></i></button>
+        <button id="current-location"><i class="fas fa-map-marker-alt"></i></button>
       </div>
       
       <div>
@@ -31,11 +31,12 @@
     <div class="col-8" >
         <h1 id="city-name">Munich</h1>
         <p class="cityinformation">
-          Local date: <span id="local-date"> 12/20/2020 </span> <br/>
-          Local time: <span id="local-time"> 5.40 p.m. </span><br/>
+          Last update: <span id="local-date"> 12/20/2020 </span> <span id="local-time"> 5.40 p.m. </span><br/>
           <br/>
+         <span id="weather-description"> Cloudy </span> <br/>
           Humidity: <span id="local-humidity"> 90 </span> %<br/>
           Wind: <span id="local-wind"> 0 </span> km/h
+        
         </p>
     
     </div>
@@ -48,47 +49,7 @@
     </br>
       <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="weather icon" id="big-icon">      
     </div>
-    
-  </div>
-  <br/> 
-  <div class="row">
-    <div class="col-3">
-        <div class="card" style="width: 6rem;">
-            <div class="card-body">
-                <h5 class="card-title">8.00 p.m.</h5>
-                <p class="card-text">1°C</p>
-                <i class="fas fa-cloud-moon"></i>
-            </div>
-        </div> 
-    </div>
-    <div class="col-3">
-        <div class="card" style="width: 6rem;">
-            <div class="card-body">
-                <h5 class="card-title">10.00 p.m.</h5>
-                <p class="card-text">0°C</p>
-                <i class="fas fa-cloud-moon"></i>
-            </div>
-        </div> 
-    </div>
-    <div class="col-3">
-        <div class="card" style="width: 6rem;">
-            <div class="card-body">
-                <h5 class="card-title">12.00 a.m.</h5>
-                <p class="card-text">-2°C</p>
-                <i class="fas fa-cloud-moon"></i>
-            </div>
-        </div> 
-    </div>
-    <div class="col-3">
-        <div class="card" style="width: 6rem;">
-            <div class="card-body">
-                <h5 class="card-title">12.00 a.m.</h5>
-                <p class="card-text">0°C</p>
-                <i class="fas fa-cloud-moon-rain"></i>
-                
-            </div>
-        </div> 
-    </div>
+   
 </div>
 </div>
 

@@ -7,9 +7,7 @@ let minutes = now.getMinutes();
 //1.1.1 When minutes < 10, then the zero is missing. With this function we add the zero
 function minutesWithZero() {
   if (minutes < 10) {
-    return "0" + minutes;
-  } else {
-    return minutes;
+    minutes = `0${minutes}`;
   }
   return now.getMinutes() < 10 ? "0" : "";
 }
@@ -40,7 +38,7 @@ let year = now.getFullYear();
 
 // 1.4 Change the HTML part with the "fake date" into the new defined one
 let localDate = document.querySelector("#local-date");
-localDate.innerHTML = `${day}, ${daydate}.${month}.${year}`;
+localDate.innerHTML = `${day}, `;
 
 // 2. Add a search engine, display the city name on the page after submit
 // 2.1 Define function, what should happen when clicking on the search button
@@ -53,7 +51,6 @@ function searchCityButton(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemperature);
-  console.log(cityName);
 }
 
 // 2.2 Define event (click on search button)
@@ -72,6 +69,7 @@ function showTemperature(response) {
   let temp = document.querySelector(".degree");
   let hum = document.querySelector("#local-humidity");
   let wind = document.querySelector("#local-wind");
+  let weatherDescription = document.querySelector("#weather-description");
   let bigWeatherIcon = document.querySelector("#big-icon");
 
   celsiusTemperature = response.data.main.temp; //you don't need "let" because it is already defined in 4.1.1
@@ -80,15 +78,41 @@ function showTemperature(response) {
   let temperature = Math.round(celsiusTemperature);
   let humidity = response.data.main.humidity;
   let windSpeed = response.data.wind.speed;
+  let weatherDescr = response.data.weather[0].description;
   let iconSource = response.data.weather[0].icon;
 
   temp.innerHTML = `${temperature}`;
   hum.innerHTML = `${humidity}`;
   wind.innerHTML = `${windSpeed}`;
+  weatherDescription.innerHTML = `${weatherDescr}`;
   bigWeatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${iconSource}@2x.png`
   );
+}
+
+function showCityWhenCurrentLocation(response) {
+  let cityName = document.querySelector("#city-name");
+  let CurrentLocationName = response.main.data.name;
+  cityName.innerHTML = CurrentLocationName;
+}
+// 3.4 Define current location button
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+// 3.4.1 Define function for current location button
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+// 3.4.2 Define function for searchLocation (current Location button)
+function searchLocation(position) {
+  let apiKey = "641aea60f164eb7376c34eaed6daea65";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showCityWhenCurrentLocation);
 }
 
 //4. Convert from Celsius to Fahrenheit and back
