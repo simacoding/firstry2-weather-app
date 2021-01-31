@@ -44,6 +44,16 @@ h1 {
   top: -16px;
 }
 
+#fahrenheit-unit {
+  text-decoration: none;
+  color: black;
+}
+
+#celsius-unit {
+  text-decoration: none;
+  color: black;
+}
+
 #entercity {
   width: 80%;
   line-height: 2;

@@ -74,8 +74,10 @@ function showTemperature(response) {
   let wind = document.querySelector("#local-wind");
   let bigWeatherIcon = document.querySelector("#big-icon");
 
+  celsiusTemperature = response.data.main.temp; //you don't need "let" because it is already defined in 4.1.1
+
   //Select data from the apiUrl:
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celsiusTemperature);
   let humidity = response.data.main.humidity;
   let windSpeed = response.data.wind.speed;
   let iconSource = response.data.weather[0].icon;
@@ -87,4 +89,29 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${iconSource}@2x.png`
   );
+}
+
+//4. Convert from Celsius to Fahrenheit and back
+// 4.1. Select the Fahrenheit and Celsius
+let fahrenheitLink = document.querySelector("#fahrenheit-unit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-unit");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+//4.1.1 Set the Celsius Temperature as a global varibale
+let celsiusTemperature = null; //nothing happens at this point.
+
+// 4.2 Create function for showing the Temperature in Fahrenheit and Celsius
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temp = document.querySelector(".degree");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temp = document.querySelector(".degree");
+  temp.innerHTML = Math.round(celsiusTemperature);
 }
