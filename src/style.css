@@ -14,10 +14,10 @@ button {
   color: #ffffff;
   background-color: #67a861;
   border-radius: 5%;
-  padding: 5px 10px;
-  font-size: 10px;
-  border: solid;
-  border-color: transparent;
+  padding: 2px 12px;
+  font-size: 15px;
+  border: 1px solid grey;
+  line-height: 2;
 }
 
 .cityinformation {
@@ -45,7 +45,9 @@ h1 {
 }
 
 #entercity {
-  width: 90%;
+  width: 80%;
+  line-height: 2;
+  border: 1px solid grey;
 }
 
 .fa-cloud-moon,
@@ -65,6 +67,9 @@ h1 {
 #searchbutton {
   background: #ffffff;
   border-radius: 5%;
+  border: 1px solid;
+  border-color: grey;
+  line-height: 2;
 }
 
 #underline-text {
