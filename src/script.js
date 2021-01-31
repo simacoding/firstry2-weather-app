@@ -9,7 +9,7 @@ function minutesWithZero() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return now.getMinutes() < 10 ? "0" : "";
+  return `${minutes}`;
 }
 
 let time = `${hour}:${minutes}`;
