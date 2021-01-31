@@ -91,11 +91,6 @@ function showTemperature(response) {
   );
 }
 
-function showCityWhenCurrentLocation(response) {
-  let cityName = document.querySelector("#city-name");
-  let CurrentLocationName = response.main.data.name;
-  cityName.innerHTML = CurrentLocationName;
-}
 // 3.4 Define current location button
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
@@ -112,7 +107,6 @@ function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemperature);
-  axios.get(apiUrl).then(showCityWhenCurrentLocation);
 }
 
 //4. Convert from Celsius to Fahrenheit and back
