@@ -71,6 +71,7 @@ function showTemperature(response) {
   let wind = document.querySelector("#local-wind");
   let weatherDescription = document.querySelector("#weather-description");
   let bigWeatherIcon = document.querySelector("#big-icon");
+  let cityName = document.querySelector("#city-name");
 
   celsiusTemperature = response.data.main.temp; //you don't need "let" because it is already defined in 4.1.1
 
@@ -80,10 +81,13 @@ function showTemperature(response) {
   let windSpeed = response.data.wind.speed;
   let weatherDescr = response.data.weather[0].description;
   let iconSource = response.data.weather[0].icon;
+  let currentCityName = response.data.name;
+  console.log(currentCityName);
 
   temp.innerHTML = `${temperature}`;
   hum.innerHTML = `${humidity}`;
   wind.innerHTML = `${windSpeed}`;
+  cityName.innerHTML = `${currentCityName}`;
   weatherDescription.innerHTML = `${weatherDescr}`;
   bigWeatherIcon.setAttribute(
     "src",
@@ -105,7 +109,7 @@ function getCurrentLocation(event) {
 function searchLocation(position) {
   let apiKey = "641aea60f164eb7376c34eaed6daea65";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+  console.log(apiUrl);
   axios.get(apiUrl).then(showTemperature);
 }
 
