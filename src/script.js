@@ -68,15 +68,23 @@ searchButton.addEventListener("click", searchCityButton); //when CLICK on button
 
 // 3.3 Function for show Temperature
 function showTemperature(response) {
-  //Select data from the apiUrl:
-  let temperature = Math.round(response.data.main.temp);
-  let humidity = response.data.main.humidity;
-  let windSpeed = response.data.wind.speed;
   //Select HTML parts, which have to be substitute with the api data:
   let temp = document.querySelector(".degree");
   let hum = document.querySelector("#local-humidity");
   let wind = document.querySelector("#local-wind");
+  let bigWeatherIcon = document.querySelector("#big-icon");
+
+  //Select data from the apiUrl:
+  let temperature = Math.round(response.data.main.temp);
+  let humidity = response.data.main.humidity;
+  let windSpeed = response.data.wind.speed;
+  let iconSource = response.data.weather[0].icon;
+
   temp.innerHTML = `${temperature}`;
   hum.innerHTML = `${humidity}`;
   wind.innerHTML = `${windSpeed}`;
+  bigWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconSource}@2x.png`
+  );
 }
