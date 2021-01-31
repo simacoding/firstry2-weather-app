@@ -2,7 +2,7 @@
   border: solid;
   margin: 0 auto;
   padding: 20px 30px;
-  max-width: 600px;
+  max-width: 500px;
   border: 1px solid grey;
 }
 
@@ -31,11 +31,17 @@ button {
 h1 {
   font-size: 40px;
   font-weight: bold;
+  line-height: 1;
 }
 
 .degree {
   font-size: 40px;
   font-weight: bold;
+  line-height: 1;
+}
+.unit {
+  position: relative;
+  top: -16px;
 }
 
 #entercity {
